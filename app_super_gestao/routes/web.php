@@ -14,5 +14,30 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'Olá, Seja bem vindo';
 });
+
+Route::get('/sobre-nos', function () {
+    return 'Sobre-nós';
+});
+
+Route::get('/contato', function () {
+    return 'contato';
+});
+
+
+
+
+/*      Route::get($uri, $callback);
+            url e função que vai ser executada nessa url
+
+    Verbo http
+
+    get
+    post
+    put
+    patch
+    delete
+    options
+
+*/
