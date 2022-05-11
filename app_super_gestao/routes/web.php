@@ -34,7 +34,14 @@ Route::get('/', 'PrincipalController@principal');
 Route::get('/sobre-nos', 'SobreNosController@sobre');
 
 Route::get('/contato', 'ContatoController@contato');
-
+// nome, categoria, assunto, mensagem
+                             // Boa praticar usar o mesmo nome! mas pra mostrar que oque importa é a ordem
+Route::get(
+    '/contato/{nome}/{categoria}/{assunto}/{mensagem}', 
+function(string $nome, string $categoria, string $assunto, string $mensagem) {
+    echo "Estamos aqui: $nome - $categoria - $assunto - $mensagem";
+    
+});
 
 
 
