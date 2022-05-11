@@ -30,10 +30,25 @@ Route::get('/contato', function () {
 Abaixo com controller */
 
 Route::get('/', 'PrincipalController@principal');
-
 Route::get('/sobre-nos', 'SobreNosController@sobre');
-
 Route::get('/contato', 'ContatoController@contato');
+
+
+Route::get('/login', function(){return 'Login';});
+
+route::prefix('/app')->group(function(){
+    Route::get('/cliente', function(){return 'cliente';});
+    Route::get('/fornecedores', function(){return 'fornecedores';});
+    Route::get('/produtos', function(){return 'produtos';});
+});
+
+
+
+
+
+
+/*      
+
 // nome, categoria, assunto, mensagem
                              // Boa praticar usar o mesmo nome! mas pra mostrar que oque importa é a ordem
                              // interrogação no final do parametro faz ele ficar opcional!
@@ -51,7 +66,8 @@ function(
 
 
 
-/*      Route::get($uri, $callback);
+
+Route::get($uri, $callback);
             url e função que vai ser executada nessa url
 
     Verbo http
