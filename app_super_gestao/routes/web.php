@@ -37,9 +37,23 @@ Route::get('/login', function(){return 'Login';})->name('site.login');
 
 route::prefix('/app')->group(function(){
     Route::get('/clientes', function(){return 'clientes';})->name('app.clientes');
-    Route::get('/fornecedores', function(){return 'fornecedores';})->name('app.fornecedores');
+    Route::get('/fornecedores', 'FornecedoreController@index')->name('app.fornecedores');
     Route::get('/produtos', function(){return 'produtos';})->name('app.produtos');
 });
+
+Route::get('/teste/{p1}/{p2}','TesteController@teste')->name('teste');
+
+
+Route::fallback(function(){
+    echo 'A rota acessada não existe. <a href="'.route('site.index').'">clique aqui</a> para ir para página inicial';
+});
+
+
+
+
+/*      
+
+
 
 
 Route::get('/rota1', function() {
@@ -55,14 +69,9 @@ Route::get('/rota2', function() {
 })->name('site.rota2');
 
 
-Route::fallback(function(){
-    echo 'A rota acessada não existe. <a href="'.route('site.index').'">clique aqui</a> para ir para página inicial';
-});
 
 
 
-
-/*      
 
 // nome, categoria, assunto, mensagem
                              // Boa praticar usar o mesmo nome! mas pra mostrar que oque importa é a ordem
