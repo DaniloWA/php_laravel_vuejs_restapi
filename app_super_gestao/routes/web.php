@@ -38,16 +38,14 @@ Route::get('/contato', 'ContatoController@contato');
                              // Boa praticar usar o mesmo nome! mas pra mostrar que oque importa é a ordem
                              // interrogação no final do parametro faz ele ficar opcional!
 Route::get(
-    '/contato/{nome?}/{categoria?}/{assunto?}/{mensagem?}', 
+    '/contato/{nome}/{categoria_id}', 
 function(
         string $nome = "desconhecido",
-        string $categoria  = "desconhecido", 
-        string $assunto  = "desconhecido", 
-        string $mensagem = "desconhecido"
+        int $categoria_id  = 1 // - 'Informação'
  ) {
-    echo "Estamos aqui: $nome - $categoria - $assunto - $mensagem";
+    echo "Estamos aqui: $nome - $categoria_id";
     
-});
+})->where('categoria_id','[0-9]+')->where('nome', '[A-Za-z]+'); // parametros com expressão regular
 
 
 
