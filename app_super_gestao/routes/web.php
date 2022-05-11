@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*  sem controoler
+
 Route::get('/', function () {
     return 'Olá, Seja bem vindo';
 });
@@ -24,6 +26,16 @@ Route::get('/sobre-nos', function () {
 Route::get('/contato', function () {
     return 'contato';
 });
+
+Abaixo com controller */
+
+Route::get('/', 'PrincipalController@principal');
+
+Route::get('/sobre-nos', 'SobreNosController@sobre');
+
+Route::get('/contato', 'ContatoController@contato');
+
+
 
 
 
