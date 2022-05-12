@@ -4,7 +4,7 @@
 
 <?= 'Texto de teste' ?>
 
-{{-- Fica o comentário que será descartado pelo interpretador do blade --}}
+{{-- Fica o comentário que será descartado pelo interpretador do blade 
 
 @php
 
@@ -99,16 +99,9 @@
         Telefone: {{ $fornecedores[$i]['ddd'] ?? '' }} {{ $fornecedores[$i]['telefone'] ?? '' }}
         <hr>
     @endfor
-    */
 
 
-
-    
-@endphp
-<br/>
-<br/>
-@isset($fornecedores)
-    @php $i = 0 @endphp
+        @php $i = 0 @endphp
     @while(isset($fornecedores[$i]))
         Fornecedor: {{ $fornecedores[$i]['nome'] }}
         <br/>
@@ -120,5 +113,30 @@
         <hr>
         @php $i++ @endphp    
     @endwhile
-@endisset
 
+    <!--foreach gera uma copia para afetar o valor original precisamos usar uma referencia!-->
+    
+
+
+
+    */
+@endphp
+
+<br/>
+<br/>
+--}}
+
+@isset($fornecedores)
+
+    @foreach($fornecedores as $indice => $fornecedor) 
+        Fornecedor: {{ $fornecedor['nome'] }}
+        <br/>
+        Status: {{ $fornecedor['status'] }}
+        <br/>
+        CNPJ: {{ $fornecedor['cnpj'] ?? 'Dado não foi preenchido' }}
+        <br/>
+        Telefone: {{ $fornecedor['ddd'] ?? '' }} {{ $fornecedor['telefone'] ?? '' }}
+        <hr>
+    @endforeach
+
+@endisset
