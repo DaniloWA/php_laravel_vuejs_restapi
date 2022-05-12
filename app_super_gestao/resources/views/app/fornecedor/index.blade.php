@@ -48,7 +48,19 @@
 <br/>
 
 
-    if(isset($variavel)) {} \\ retorna true se a variavel estiver definida
+    if(isset($variavel)) {} \\ retorna true se a variavel estiver definida/existe
+
+    if(empty($variavel)) {} \\ retorna true se a variavel estiver vazia
+
+    variaveis vazias no PHP
+    - ''
+    - 0
+    - 0.0
+    - '0'
+    - null
+    - flase
+    - array()
+    - $var declarada mas sem valor
 
     */
 
@@ -65,5 +77,8 @@
     <br/>
     @isset($fornecedores[0]['cnpj'])
         CNPJ: {{ $fornecedores[0]['cnpj'] }}
+        @empty($fornecedores[0]['cnpj'])
+            -- Vazio
+        @endempty
     @endisset
 @endisset
