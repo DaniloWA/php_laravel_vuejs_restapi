@@ -126,11 +126,19 @@
 <br/>
 
 forelse compinação do foreach e de um comando condicional para verificar se o array está vazio
---}}
 
+          {{ $loop->count }} total de registros 
+          $loop->first primeira iteraçãp
+objeto {{ $loop->iteration }} está apenas disponivel no foreach e forelse isso porque no laço for e while declaramos a variavel de controle
+--}}
+<br>
 @isset($fornecedores)
 
     @forelse($fornecedores as $indice => $fornecedor) 
+        Interação atual: {{ $loop->iteration }}
+        <br>
+        Total de registros: {{ $loop->count }}
+        <br>
         Fornecedor: {{ $fornecedor['nome'] }}
         <br/>
         Status: {{ $fornecedor['status'] }}
@@ -138,6 +146,14 @@ forelse compinação do foreach e de um comando condicional para verificar se o 
         CNPJ: {{ $fornecedor['cnpj'] ?? 'Dado não foi preenchido' }}
         <br/>
         Telefone: {{ $fornecedor['ddd'] ?? '' }} {{ $fornecedor['telefone'] ?? '' }}
+        <br>
+        @if($loop->first)
+            Primeira iteração do Loop
+        @endif
+        @if($loop->last)
+            Ultima iteração do Loop
+           
+        @endif
         <hr>
     @empty
         Não existem fornecedores cadastrados!!!
