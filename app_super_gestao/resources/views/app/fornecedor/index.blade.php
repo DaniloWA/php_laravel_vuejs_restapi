@@ -88,17 +88,8 @@
         @default
             Estado não identificado
         @endswitch
-    */
 
-
-
-    
-@endphp
-<br/>
-<br/>
-@isset($fornecedores)
-
-    @for($i = 0; isset($fornecedores[$i]); $i++)
+            @for($i = 0; isset($fornecedores[$i]); $i++)
         Fornecedor: {{ $fornecedores[$i]['nome'] }}
         <br/>
         Status: {{ $fornecedores[$i]['status'] }}
@@ -108,5 +99,26 @@
         Telefone: {{ $fornecedores[$i]['ddd'] ?? '' }} {{ $fornecedores[$i]['telefone'] ?? '' }}
         <hr>
     @endfor
+    */
+
+
+
+    
+@endphp
+<br/>
+<br/>
+@isset($fornecedores)
+    @php $i = 0 @endphp
+    @while(isset($fornecedores[$i]))
+        Fornecedor: {{ $fornecedores[$i]['nome'] }}
+        <br/>
+        Status: {{ $fornecedores[$i]['status'] }}
+        <br/>
+        CNPJ: {{ $fornecedores[$i]['cnpj'] ?? 'Dado não foi preenchido' }}
+        <br/>
+        Telefone: {{ $fornecedores[$i]['ddd'] ?? '' }} {{ $fornecedores[$i]['telefone'] ?? '' }}
+        <hr>
+        @php $i++ @endphp    
+    @endwhile
 @endisset
 
