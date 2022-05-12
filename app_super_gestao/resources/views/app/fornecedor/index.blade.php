@@ -36,6 +36,20 @@
 
     Enquanto o IF executa se o retorno for true
     o @unless executa se o retorno for false
+
+
+    @if( !($fornecedores[0]['status'] == 'S') )
+    Fornecedor inativo
+@endif
+<br/>
+@unless($fornecedores[0]['status'] == 'S') <!---Ele executa se o retorno da condiçã for false diferente do IF que é quando true -->
+    Fornecedor inativo
+@endunless
+<br/>
+
+
+    if(isset($variavel)) {} \\ retorna true se a variavel estiver definida
+
     */
 
 
@@ -44,15 +58,12 @@
 @endphp
 <br/>
 <br/>
-Fornecedor: {{ $fornecedores[0]['nome'] }}
-<br/>
-Status: {{ $fornecedores[0]['status'] }}
-<br/>
-@if( !($fornecedores[0]['status'] == 'S') )
-    Fornecedor inativo
-@endif
-<br/>
-@unless($fornecedores[0]['status'] == 'S') <!---Ele executa se o retorno da condiçã for false diferente do IF que é quando true -->
-    Fornecedor inativo
-@endunless
-<br/>
+@isset($fornecedores)
+    Fornecedor: {{ $fornecedores[0]['nome'] }}
+    <br/>
+    Status: {{ $fornecedores[0]['status'] }}
+    <br/>
+    @isset($fornecedores[0]['cnpj'])
+        CNPJ: {{ $fornecedores[0]['cnpj'] }}
+    @endisset
+@endisset
