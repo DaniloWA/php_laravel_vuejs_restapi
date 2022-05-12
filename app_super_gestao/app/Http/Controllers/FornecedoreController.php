@@ -32,7 +32,6 @@ class FornecedoreController extends Controller
     ];
 
     /*operador ternário: condição = se verdade : se falso 
-
     $msg = isset($fornecedores[0]['cnpj']) ? 'CNPJ informado' : 'CNPJ não informado';
     echo $msg;
     */
