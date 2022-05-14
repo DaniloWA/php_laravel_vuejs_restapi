@@ -11,4 +11,5 @@ class Fornecedor extends Model
 {
     // Atributo table vai sempre sobrepor a nomeação automatica do eloquent
     protected $table = 'fornecedores';
+    protected $fillable = ['nome', 'site', 'uf', 'email'];
 }
