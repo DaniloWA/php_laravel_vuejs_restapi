@@ -13,6 +13,10 @@ class SiteContatoSeeder extends Seeder
      */
     public function run()
     {
+
+        factory(SiteContato::class, 500)->create();
+
+        /*
         $contato = new SiteContato();
         $contato->nome = 'Sistema SG';
         $contato->telefone = '(11) 9999-7777';
@@ -20,5 +24,7 @@ class SiteContatoSeeder extends Seeder
         $contato->motivo_contato = 1;
         $contato->mensagem = 'Seja Bem vindo ao App super gestão';
         $contato->save();
+         */
+       
     }
 }
