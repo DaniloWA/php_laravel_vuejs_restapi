@@ -49,11 +49,11 @@ class ContatoController extends Controller
 
         // Realizar a validação dos dados do formulário recebidos no request
         $request->validate([
-            'nome' => 'required',
+            'nome' => 'required|min:3|max:16', 
             'telefone' => 'required',
             'email' => 'required',
             'motivo_contato' => 'required',
-            'mensagem' => 'required'
+            'mensagem' => 'required|max:2000'
         ]);
         // SiteContato::create($request->all());
     }
