@@ -37,14 +37,20 @@ class ContatoController extends Controller
         //$contato->save();
         //print_r($contato->getAttributes());
         */
+        $motivo_contatos= [
+            '1' => 'Dúvida',
+            '2' => 'Elogio',
+            '3' => 'Reclamação',
+        ];
 
 
-        return view('site.contato', ['titulo' => 'Contato']);
+        return view('site.contato', ['titulo' => 'Contato', 'motivo_contatos' => $motivo_contatos]);
         
     }
 
     public function salvar(Request $request){   
          //:: executa o metodo create sem a necessidade de instanciar o objeto $contato = new SiteContato();   
+        
         
 
         // Realizar a validação dos dados do formulário recebidos no request
