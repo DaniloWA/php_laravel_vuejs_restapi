@@ -11,7 +11,7 @@
         <div class="informacao-pagina">
             <div class="contato-principal">
                 @component('site.layouts._components.form_contato', ['classe' => 'borda-preta', 'motivo_contatos' => $motivo_contatos])
-                    <p>A nossa equipe analisará a sua mensagem e retornaremos o mais brevemente possível!</p>
+                    <p>A nossa equipe analisará a sua mensagem e retornaremos o mais brevemente possível! Aguarde com carinho!</p>
                     <p>Nosso tempo médio de resposta é de 48 horas.</p>
                 @endcomponent
             </div>
@@ -21,9 +21,9 @@
     <div class="rodape">
         <div class="redes-sociais">
             <h2>Redes sociais</h2>
-            <img src="{{ asset('img/facebook.jpg') }}">
-            <img src="{{ asset('img/linkedin.jpg') }}">
-            <img src="{{ asset('img/youtube.jpg') }}">
+            <img src="{{ asset('img/facebook.png') }}">
+            <img src="{{ asset('img/linkedin.png') }}">
+            <img src="{{ asset('img/youtube.png') }}">
         </div>
         <div class="area-contato">
             <h2>Contato</h2>
