@@ -21,11 +21,14 @@
     <br>
     <button type="submit" class="{{ $classe }}">ENVIAR</button>
 </form>
+<!-- Metodo any que retorna true ou false caso exista erro-->
+@if($errors->any())
+    <div style="position: absolute; top:0px; left:0px; width: 100%; background:red;">
 
+        @foreach($errors->all() as $erro)
+            {{ $erro }}
+            <br>
+        @endforeach
 
-<div style="position: absolute; top:0px; left:0px; width: 100%; background:red;">
-    <pre>
-        {{ print_r($errors) }}
-    </pre>
-</div>
-
+    </div>
+@endif
