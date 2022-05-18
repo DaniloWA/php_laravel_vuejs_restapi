@@ -30,14 +30,12 @@ Route::get('/contato', function () {
 
 Abaixo com controller */
 
-Route::middleware(logAcessoMiddleware::class)
-->get('/', 'PrincipalController@principal')
+Route::get('/', 'PrincipalController@principal')
 ->name('site.index');
 
 Route::get('/sobre-nos', 'SobreNosController@sobre')->name('site.sobrenos');
 
-Route::middleware(logAcessoMiddleware::class)
-->get('/contato', 'ContatoController@contato')
+Route::get('/contato', 'ContatoController@contato')
 ->name('site.contato');
 
 Route::post('/contato', 'ContatoController@salvar')->name('site.contato');
