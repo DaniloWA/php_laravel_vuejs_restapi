@@ -35,7 +35,11 @@ Route::middleware(logAcessoMiddleware::class)
 ->name('site.index');
 
 Route::get('/sobre-nos', 'SobreNosController@sobre')->name('site.sobrenos');
-Route::get('/contato', 'ContatoController@contato')->name('site.contato');
+
+Route::middleware(logAcessoMiddleware::class)
+->get('/contato', 'ContatoController@contato')
+->name('site.contato');
+
 Route::post('/contato', 'ContatoController@salvar')->name('site.contato');
 Route::get('/login', function(){return 'Login';})->name('site.login');
 
