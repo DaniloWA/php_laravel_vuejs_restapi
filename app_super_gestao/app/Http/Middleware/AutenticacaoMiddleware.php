@@ -13,10 +13,26 @@ class AutenticacaoMiddleware
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed
-     */
-    public function handle($request, Closure $next)
+     */                                             // parametros passados no middleware parametros inifinitos
+    public function handle($request, Closure $next, $metodo_autentificacao, $perfil)
     {
         //verifica se o  usuário possui acesso a rota
+        echo $metodo_autentificacao. ' - ' .$perfil. '<br>';
+
+        if($metodo_autentificacao == 'padrao'){
+            echo 'Verificar usarui e senha no banco de dados! <br>' .$perfil. '<br>';
+        }
+
+        if($metodo_autentificacao == 'ldap'){
+            echo 'Verificar usarui e senha no AD! <br>' .$perfil. '<br>';
+        }
+
+        if($perfil == 'visitante'){
+            echo 'Exibir apenas alguns recursos';
+        } else {
+            echo 'Carregar o perfil do banco de dados!';
+        }
+
         if(true){
             return $next($request);
         } else {
