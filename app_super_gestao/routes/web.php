@@ -30,6 +30,8 @@ Route::get('/contato', function () {
 
 Abaixo com controller */
 
+// ->middleware('log.acess')  usando Apelido de Middleware também pode ser usado nos constrolladores  
+
 Route::get('/', 'PrincipalController@principal')
 ->name('site.index');
 
