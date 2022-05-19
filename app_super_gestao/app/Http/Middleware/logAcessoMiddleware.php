@@ -26,9 +26,13 @@ class logAcessoMiddleware
 
         $ip = $request->server->get('REMOTE_ADDR');
         $rota = $request->getRequestUri();
-
         LogAcesso::create(['log' => "$ip requisitou a rota $rota"]);
-        return $next($request);
+
+        $resposta = $next($request);
+
+        $resposta->setStatusCode(201, 'O status da resposta e o texto da respsota foram modificados!!!');
+        
+        return $resposta;
         //return Response('Chegamos no middleware e finalizamos no proprio middleware');
     }
 }
