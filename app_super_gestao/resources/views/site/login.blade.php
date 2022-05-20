@@ -20,6 +20,7 @@
 
                     <input type="submit" class="borda-preta" value="Acessar">
                 </form>
+                {{ isset($erro) && $erro != '' ? $erro : '' }}
             </div>
         </div>  
     </div>

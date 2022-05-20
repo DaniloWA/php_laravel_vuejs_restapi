@@ -44,7 +44,8 @@ Route::get('/contato', 'ContatoController@contato')
 Route::post('/contato', 'ContatoController@salvar')
 ->name('site.contato');
 
-Route::get('/login', 'LoginController@index')->name('site.login');
+// {erro?} a interrogação faz o parametro ser opcional!
+Route::get('/login/{erro?}', 'LoginController@index')->name('site.login');
 Route::post('/login', 'LoginController@autenticar')->name('site.login');
 
 
