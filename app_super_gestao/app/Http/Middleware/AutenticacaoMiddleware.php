@@ -14,7 +14,7 @@ class AutenticacaoMiddleware
      * @param  \Closure  $next
      * @return mixed
      */                                             // parametros passados no middleware parametros inifinitos
-    public function handle($request, Closure $next, $metodo_autentificacao, $perfil)
+    public function handle($request, Closure $next)
     {
         
         session_start();
@@ -24,16 +24,7 @@ class AutenticacaoMiddleware
         } else{
             return redirect()->route('site.login', ['erro' => 2]);
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         
         /*
         //verifica se o  usuário possui acesso a rota
