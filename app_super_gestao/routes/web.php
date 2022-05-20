@@ -44,8 +44,9 @@ Route::get('/contato', 'ContatoController@contato')
 Route::post('/contato', 'ContatoController@salvar')
 ->name('site.contato');
 
-Route::get('/login', function(){return 'Login';})
-->name('site.login');
+Route::get('/login', 'LoginController@index')->name('site.login');
+Route::post('/login', 'LoginController@autenticar')->name('site.login');
+
 
 // sequencia da chamada do middleware importa!
 // :parametro separar parametros por , e pode usar quantos quiser
