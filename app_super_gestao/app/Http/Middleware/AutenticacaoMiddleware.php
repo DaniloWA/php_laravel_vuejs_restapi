@@ -16,6 +16,26 @@ class AutenticacaoMiddleware
      */                                             // parametros passados no middleware parametros inifinitos
     public function handle($request, Closure $next, $metodo_autentificacao, $perfil)
     {
+        
+        session_start();
+        
+        if(isset($_SESSION['email']) && $_SESSION['email'] != ''){
+            return $next($request);
+        } else{
+            return redirect()->route('site.login', ['erro' => 2]);
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
         //verifica se o  usuário possui acesso a rota
         echo $metodo_autentificacao. ' - ' .$perfil. '<br>';
 
@@ -38,5 +58,7 @@ class AutenticacaoMiddleware
         } else {
             return Response('Acesso negado! Rota existe autenticação!');
         }
+        */
+        
     }
 }
