@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Produto;
+use App\Unidade;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -27,8 +28,8 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        //
-        return view('app.produto.create');
+        $unidades = Unidade::all();
+        return view('app.produto.create', ['unidades' => $unidades]);
     }
 
     /**
@@ -39,7 +40,13 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Produto::create($request->all());
+        //$produto = new Produto();
+        
+        //$nome = $request->get('nome'); forma de tratar é instanciando o objeto e no final ->save(); 
+        //$descricao = $request->get('descricao');
+
+        redirect()->route('produto.index');
     }
 
     /**
