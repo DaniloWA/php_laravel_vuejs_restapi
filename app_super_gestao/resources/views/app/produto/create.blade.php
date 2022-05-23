@@ -21,14 +21,12 @@
             <div style="width: 30%; margin-left: auto; margin-right: auto;" >
                 <form action="{{ route('produto.store')}}" method="POST">
                     @csrf
-                    <input type="text" value="" name="nome" placeholder="Nome" class="borda-preta">
-                   
-
-                    <input type="text" value="" name="descricao" placeholder="Descrição" class="borda-preta">
-
-
-                    <input type="text" value="" name="peso" placeholder="Peso" class="borda-preta">
-
+                    <input type="text"  name="nome" value="{{ old('nome') }}" placeholder="Nome" class="borda-preta">
+                    {{ $errors->has('nome') ? $errors->first() : ''}}
+                    <input type="text" value="{{ old('descricao') }}" name="descricao" placeholder="Descrição" class="borda-preta">
+                    {{ $errors->has('descricao') ? $errors->first() : ''}}
+                    <input type="text" value="{{ old('peso') }}" name="peso" placeholder="Peso" class="borda-preta">
+                    {{ $errors->has('peso') ? $errors->first() : ''}}
 
                    <select name="unidade_id">
                        <option value="">-- Selecione a Unidade de Medida --</option>
@@ -37,6 +35,7 @@
                        @endforeach
 
                    </select>
+                   {{ $errors->has('unidade_id') ? $errors->first() : ''}}
 
                     <button type="submit" class="borda-preta">Cadastrar</button>
                 </form>

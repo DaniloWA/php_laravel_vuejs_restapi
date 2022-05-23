@@ -37,8 +37,8 @@
                                 <td>{{ $produto->descricao }}</td>
                                 <td>{{ $produto->uf }}</td>
                                 <td>{{ $produto->email }}</td>
-                                <td><a href="{{ route('app.produto.excluir', $produto->id) }}">Exluir</a></td>
-                                <td><a href="{{ route('app.produto.editar', $produto->id) }}">Editar</a></td>
+                                <td><a href="">Exluir</a></td>
+                                <td><a href="">Editar</a></td>
                             </tr>
                         @endforeach
                     </tbody>
