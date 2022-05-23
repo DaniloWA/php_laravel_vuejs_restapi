@@ -28,6 +28,7 @@
                             <th>E-email</th>
                             <th></th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,6 +38,7 @@
                                 <td>{{ $produto->descricao }}</td>
                                 <td>{{ $produto->uf }}</td>
                                 <td>{{ $produto->email }}</td>
+                                <td><a href="{{ route('produto.show', ['produto' => $produto->id]) }}">Visualizar</a></td>
                                 <td><a href="">Exluir</a></td>
                                 <td><a href="">Editar</a></td>
                             </tr>
