@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Produto;
+use App\ProdutosDetalhe;
 use App\Unidade;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,28 @@ class ProdutoController extends Controller
     {
         //
         $produtos = Produto::paginate(10);
+        foreach($produtos as $key => $produto){
+            //print_r($produto->getAttributes());
+            //echo '<br><br>';
+
+            $produtosDetalhe = ProdutosDetalhe::where('produto_id', $produto->id)->first();
+            
+            //Collection produtoDetalhe sem o first
+            //Com o first estamos recuperando de fato o ProdutoDetalhe
+             
+            if(isset($produtosDetalhe)){
+               // print_r($produtosDetalhe->getAttributes());
+
+                //Utilizando a collection original $produtos porque o foreach cria uma copia do array que está percorrendo então eu não conseguiria afetar a colecao orginal             
+
+                $produtos[$key]['comprimento'] = $produtosDetalhe->comprimento;
+                $produtos[$key]['largura'] = $produtosDetalhe->largura;
+                $produtos[$key]['altura'] = $produtosDetalhe->altura;
+            };
+
+           // echo '<hr>';
+        };
+        
         
         return view('app.produto.index', ['produtos' => $produtos, 'request' => $request->all()]);
     }
