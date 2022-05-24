@@ -31,13 +31,13 @@
                    <select name="unidade_id">
                        <option value="">-- Selecione a Unidade de Medida --</option>
                        @foreach($unidades as $unidade)
-                            <option value="{{$unidade->id}}">{{$unidade->descicao}}</option>
+                            <option value="{{$unidade->id}}" {{($produto->unidade_id ?? old('unidade_id') == $unidade->id ? 'selected' : '')}} >{{$unidade->descicao}}</option>
                        @endforeach
 
                    </select>
                    {{ $errors->has('unidade_id') ? $errors->first() : ''}}
 
-                    <button type="submit" class="borda-preta">Cadastrar</button>
+                    <button type="submit" class="borda-preta">Editar</button>
                 </form>
             </div>
         </div>
