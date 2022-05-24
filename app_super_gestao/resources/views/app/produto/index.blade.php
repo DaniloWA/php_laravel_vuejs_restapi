@@ -19,6 +19,7 @@
 
         <div class="informacao-pagina">
             <div style="width: 90%; margin-left: auto; margin-right: auto;" >
+               <!-- {{ $produtos->toJson() }} Lazy Loading só vai ter as informações apos a chamada do metodo no caso produtosDetalhes dentro da tabela -->
                 <table border="1" width="100%" >
                     <thead>
                         <tr>
@@ -61,6 +62,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                <!-- {{ $produtos->toJson() }} -->
                 {{ $produtos->appends($request)->links() }}
                 <!--
                 {{ $produtos->count() }} - Total de registros por página

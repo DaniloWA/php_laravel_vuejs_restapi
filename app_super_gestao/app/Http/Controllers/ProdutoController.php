@@ -17,8 +17,9 @@ class ProdutoController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        $produtos = Item::paginate(10);
+        //cada parametro representa um metodo dentro do model que impelementa um relacionamento
+        //Usando o With pra fazer um load previo modificando o lazy loading para Eager Loading carregamento ancioso
+        $produtos = Item::with(['produtosDetalhe', 'rel2', 'rel3'])->paginate(10);
         
        /*  foreach($produtos as $key => $produto){
             //print_r($produto->getAttributes());

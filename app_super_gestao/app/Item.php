@@ -13,4 +13,12 @@ class Item extends Model
     public function produtosDetalhe() { //Expecificando o nome da coluna FK da tabela produtos em sequencia a primary key da tabela 
         return $this->hasOne('App\ItemDetalhe', 'produto_id', 'id'); 
     }
+
+    public function rel2() {  
+        return $this->hasOne('App\ItemDetalhe', 'produto_id', 'id'); 
+    }
+
+    public function rel3() {  
+        return $this->hasOne('App\ItemDetalhe', 'produto_id', 'id'); 
+    }
 }
