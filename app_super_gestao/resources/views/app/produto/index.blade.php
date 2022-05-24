@@ -42,9 +42,10 @@
                                 <td>{{ $produto->descricao }}</td>
                                 <td>{{ $produto->peso }}</td>
                                 <td>{{ $produto->unidade_id }}</td>
-                                <td>{{ $produto->comprimento ?? '' }}</td>
-                                <td>{{ $produto->altura ?? '' }}</td>
-                                <td>{{ $produto->largura ?? '' }}</td>
+                                <!-- Executando metodo produtosDetalhes feito no modelo produtosDetalhe  -->
+                                <td>{{ $produto->produtosDetalhe->comprimento ?? '' }}</td>
+                                <td>{{ $produto->produtosDetalhe->altura ?? '' }}</td>
+                                <td>{{ $produto->produtosDetalhe->largura ?? '' }}</td>
 
                                 <td><a href="{{ route('produto.show', ['produto' => $produto->id]) }}">Visualizar</a></td>
                                 <td>
