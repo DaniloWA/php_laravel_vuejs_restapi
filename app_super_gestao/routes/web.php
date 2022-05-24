@@ -68,7 +68,7 @@ route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
     Route::resource('produto', 'ProdutoController');
 
     // produtos detalhes
-    Route::resource('produto-detalhe', 'ProdutoDetalheController');
+    Route::resource('produtos-detalhe', 'ProdutosDetalhesController');
 });
 
 Route::get('/teste/{p1}/{p2}','TesteController@teste')->name('teste');
