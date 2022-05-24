@@ -14,5 +14,10 @@ class Fornecedor extends Model
     // Atributo table vai sempre sobrepor a nomeação automatica do eloquent
     protected $table = 'fornecedores';
     protected $fillable = ['nome', 'site', 'uf', 'email'];
+
+    public function produtos () {
+        return $this->hasMany('App\Item','fornecedor_id','id');
+       //return $this->hasMany('App\Item'); se os nomes forem padrões formados pelo laravel não precisa por
+    }
 }
 
