@@ -49,7 +49,7 @@ class ProdutoController extends Controller
         $regras = [
             'nome' => 'required|min:3|max:40',
             'descricao' => 'required|min:3|max:2000',
-            'peso' => 'required|interger',
+            'peso' => 'required|integer',
             //              exists:<tabela>,<coluna>
             'unidade_id' =>'exists:unidades,id'
         ];
@@ -89,7 +89,8 @@ class ProdutoController extends Controller
     public function edit(Produto $produto)
     {
         $unidades = Unidade::all();
-        return view('app.produto.edit', ['produto' => $produto, 'unidades' => $unidades]);
+        //return view('app.produto.edit', ['produto' => $produto, 'unidades' => $unidades]);
+        return view('app.produto.create', ['produto' => $produto, 'unidades' => $unidades]);
     }
 
     /**
@@ -104,7 +105,7 @@ class ProdutoController extends Controller
         //$request->all();  payload dados que recebemos do form edit
         //$produto; Instancia do objeto no estado anterior antes de editar 
 
-        
+
         $produto->update($request->all()); // Significa que os dados que recebemos do form iram atualizar os atributos do objeto na base de dados
         return redirect()->route('produto.show', ['produto' => $produto->id]);
     }
@@ -117,6 +118,7 @@ class ProdutoController extends Controller
      */
     public function destroy(Produto $produto)
     {
-        //
+        $produto->delete();
+        return redirect()->route('produto.index');
     }
 }
