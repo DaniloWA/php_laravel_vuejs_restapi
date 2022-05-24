@@ -101,7 +101,12 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
-        //
+        //$request->all();  payload dados que recebemos do form edit
+        //$produto; Instancia do objeto no estado anterior antes de editar 
+
+        
+        $produto->update($request->all()); // Significa que os dados que recebemos do form iram atualizar os atributos do objeto na base de dados
+        return redirect()->route('produto.show', ['produto' => $produto->id]);
     }
 
     /**
