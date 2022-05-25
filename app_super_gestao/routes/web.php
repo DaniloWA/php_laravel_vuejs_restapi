@@ -51,7 +51,7 @@ Route::post('/login', 'LoginController@autenticar')->name('site.login');
 
 // sequencia da chamada do middleware importa!
 // :parametro separar parametros por , e pode usar quantos quiser
-route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(function(){
+route::middleware('autenticacao:padrao')->prefix('/app')->group(function(){
     Route::get('/home', 'HomeController@index')->name('app.home');
     Route::get('/sair', 'LoginController@sair')->name('app.sair');
     Route::get('/cliente', 'ClienteController@index')->name('app.cliente');
