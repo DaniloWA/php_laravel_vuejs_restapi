@@ -34,7 +34,7 @@ class CreateClientePedidoProdutos extends Migration
             $table->timestamps();
 
             $table->foreign('pedido_id')->references('id')->on('pedidos');
-            $table->foreign('produto_id')->references('id')->on('produto');
+            $table->foreign('produto_id')->references('id')->on('produtos');
         });
     }
 

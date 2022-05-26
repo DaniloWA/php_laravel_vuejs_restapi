@@ -44,7 +44,6 @@ class ProdutoController extends Controller
            // echo '<hr>';
         }; */
         
-        
         return view('app.produto.index', ['produtos' => $produtos, 'request' => $request->all()]);
     }
 
