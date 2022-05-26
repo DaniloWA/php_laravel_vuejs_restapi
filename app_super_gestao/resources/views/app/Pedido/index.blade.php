@@ -8,6 +8,7 @@
 
         <div class="titulo-pagina-2">
             <p>Listagem de Pedidos</p>
+            
         </div>
 
         <div class="menu">
@@ -28,6 +29,7 @@
                             <th></th>
                             <th></th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +37,7 @@
                             <tr>
                                 <td>{{ $pedido->id }}</td>
                                 <td>{{ $pedido->cliente_id }}</td>
+                                <td><a href="{{ route('pedido-produto.create', ['pedido' => $pedido->id]) }}">Adicionar Produto</a></td>
                                 <td><a href="{{ route('pedido.show', ['pedido' => $pedido->id]) }}">Visualizar</a></td>
                                 <td>
                                     <form id="form_{{$pedido->id}}" method="post" action="{{ route('pedido.destroy', ['pedido'=>$pedido->id]) }}">
