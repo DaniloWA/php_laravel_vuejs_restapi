@@ -40,6 +40,7 @@
        const vm = new Vue({
             el: '#app',
             data: { 
+                //Atributos do DATA não podem ter o mesmo nome nem nos Methods
                 n1: 10,
                 n2: 5,
                 mensagem: 'Primeiro template controlado pelo Vue', //string
@@ -83,13 +84,18 @@
                     return Math.random()
                 },
 
+
+
                 somarT: function somar() { // convencional
                     return this.n1 + this.n1
                 },
                 subtrairT: function() {  //anônima
                     return this.n1 - this.n1
                 },  
-                multiplicarT: () => 4 * 2,//arrow function //contexto léxico
+                multiplicarT: () => {
+                    console.log(this) // não faz referencia pra instancia de view faz referencia de Windon referencia global do navegador!
+                    return 4 * 2
+                },//arrow function //contexto léxico
 
                 dividirT(){ // forma enxuta de definir os pares de chave/valor 
                     return this.n1 + this.n1 / this.n1 + this.n1
