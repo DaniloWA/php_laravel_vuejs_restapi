@@ -19,7 +19,7 @@
 
     <div id="app"> 
         <input type="text" @keyup="imprimirTexto('enviando parametro',5)">
-        <button @click="mensagemAlerta()">alerta</button>
+        <button @click="mensagemAlerta($event,'text0',0)">alerta</button>
     </div>
     
     <script>
@@ -32,7 +32,8 @@
                 imprimirTexto(t,n) {
                     console.log(t,n,this.xyz)
                 },
-                mensagemAlerta() {
+                mensagemAlerta(event,p1,p2) {
+                    console.log(event,p1,p2)
                     alert('Mensagem de alerta')
                 }
             }
