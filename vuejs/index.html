@@ -10,6 +10,9 @@
         .verde {
             color: green;
         }
+        .negrito{
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -44,10 +47,13 @@
 
     <div id="app"> 
         <h1>V-BIND</h1>
-        <a v-bind:href="site">Site</a>
-        <p v-bind:class="cor">Entendendo a diretiva v-bind</p>
-        <input type="text" v-bind:placeholder="intrucaoDePreenchimento" v-bind:value="valor">
-        <input type="checkbox" v-bind:checked="check">
+        <!--Sobre posição de valores por ordem de atribuição-->
+        <a href="www.google.com.ru" :href="site" >Site</a>
+
+         <!--Sobre posição de valores por ordem de atribuição-->
+        <p :class="cor" class="negrito">Entendendo a diretiva v-bind</p>
+        <input type="text" :placeholder="intrucaoDePreenchimento" :value="valor">
+        <input type="checkbox" :checked="check">
     </div>
     
 
