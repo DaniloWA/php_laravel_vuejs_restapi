@@ -18,17 +18,19 @@
 <body>
 
     <div id="app"> 
-        <input type="text" @keyup="imprimirTexto()">
+        <input type="text" @keyup="imprimirTexto('enviando parametro',5)">
         <button @click="mensagemAlerta()">alerta</button>
     </div>
     
     <script>
         const vm = new Vue({
             el: '#app',
-            data: {},
+            data: {
+                xyz: true
+            },
             methods: {
-                imprimirTexto() {
-                    console.log('Teste')
+                imprimirTexto(t,n) {
+                    console.log(t,n,this.xyz)
                 },
                 mensagemAlerta() {
                     alert('Mensagem de alerta')
