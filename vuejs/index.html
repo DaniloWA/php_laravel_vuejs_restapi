@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./vue.js"></script>
     <title>Document</title>
+    <style>
+        .verde {
+            color: green;
+        }
+    </style>
 </head>
 <body>
-
+<!-- 
     <div id="app">
 
         <h1>DATA!</h1>
@@ -33,11 +38,35 @@
         Função arrow: {{ multiplicarT() }} <br>
         Forma mais elegante de definir função: {{ multiplicarT() }} <br>
         Forma mais elegante de definir função: {{ numeroAleatorioT() }} <br>
-
+        <hr>
     </div>
+-->
+
+    <div id="app"> 
+        <h1>V-BIND</h1>
+        <a v-bind:href="site">Site</a>
+        <p v-bind:class="cor">Entendendo a diretiva v-bind</p>
+        <input type="text" v-bind:placeholder="intrucaoDePreenchimento" v-bind:value="valor">
+        <input type="checkbox" v-bind:checked="check">
+    </div>
+    
 
     <script>
-       const vm = new Vue({
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                site: 'https://google.com.br',
+                cor: 'verde',
+                intrucaoDePreenchimento: 'Placeholder - Diretiva v-bind',
+                valor: 'Ententando a diretiva v-bind',
+                check: true,
+            },
+            methods: {}
+        })
+        
+    
+        /*
+        const vm = new Vue({
             el: '#app',
             data: { 
                 //Atributos do DATA não podem ter o mesmo nome nem nos Methods
@@ -105,6 +134,8 @@
                 }
             }
         }); 
+        */
+       
     </script>
 </body>
 </html>
