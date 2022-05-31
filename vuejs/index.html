@@ -10,6 +10,7 @@
 <body>
 
     <div id="app">
+
         <h1>DATA!</h1>
         {{ mensagem }} <br>
         Valor total: {{ valorTotal }} <br>
@@ -17,18 +18,30 @@
         Hobbie: {{ hobbies[0] }} <br>
         Perfil: {{ perfil.site }}, {{perfil.cursos[0].nome}}
         <hr>
+
         <h1>Metódos!</h1>
         Função convencional: {{ somar() }} <br>
         Função anonima: {{ subtrair() }} <br>
         Função arrow: {{ multiplicar() }} <br>
         Forma mais elegante de definir função: {{ multiplicar() }} <br>
         Forma mais elegante de definir função: {{ numeroAleatorio() }} <br>
+        <hr>
+
+        <h1>Referenciar dados do DATA!</h1>
+        Função convencional: {{ somarT() }} <br>
+        Função anonima: {{ subtrairT() }} <br>
+        Função arrow: {{ multiplicarT() }} <br>
+        Forma mais elegante de definir função: {{ multiplicarT() }} <br>
+        Forma mais elegante de definir função: {{ numeroAleatorioT() }} <br>
+
     </div>
 
     <script>
        const vm = new Vue({
             el: '#app',
             data: { 
+                n1: 10,
+                n2: 5,
                 mensagem: 'Primeiro template controlado pelo Vue', //string
                 valorTotal: 150.47, //número
                 logado:false, //booleano
@@ -67,6 +80,21 @@
                     return 4 / 2
                 },
                 numeroAleatorio: function numeroAleatorio() { // a informação atribuida a chave é identica ao seu valor na pratica é isso que estamos fazendo na forma enxuta// uma função de mesmo nome de sua chave
+                    return Math.random()
+                },
+
+                somarT: function somar() { // convencional
+                    return this.n1 + this.n1
+                },
+                subtrairT: function() {  //anônima
+                    return this.n1 - this.n1
+                },  
+                multiplicarT: () => 4 * 2,//arrow function //contexto léxico
+
+                dividirT(){ // forma enxuta de definir os pares de chave/valor 
+                    return this.n1 + this.n1 / this.n1 + this.n1
+                },
+                numeroAleatorioT: function numeroAleatorio() { // a informação atribuida a chave é identica ao seu valor na pratica é isso que estamos fazendo na forma enxuta// uma função de mesmo nome de sua chave
                     return Math.random()
                 }
             }
