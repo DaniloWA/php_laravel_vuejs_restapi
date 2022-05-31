@@ -10,11 +10,19 @@
 <body>
 
     <div id="app">
+        <h1>DATA!</h1>
         {{ mensagem }} <br>
         Valor total: {{ valorTotal }} <br>
         Logado: {{ logado }} <br>
         Hobbie: {{ hobbies[0] }} <br>
         Perfil: {{ perfil.site }}, {{perfil.cursos[0].nome}}
+        <hr>
+        <h1>Metódos!</h1>
+        Função convencional: {{ somar() }} <br>
+        Função anonima: {{ subtrair() }} <br>
+        Função arrow: {{ multiplicar() }} <br>
+        Forma mais elegante de definir função: {{ multiplicar() }} <br>
+        Forma mais elegante de definir função: {{ numeroAleatorio() }} <br>
     </div>
 
     <script>
@@ -44,6 +52,22 @@
                             cargaHoraria: '40 Horas'
                         }
                     ]
+                }
+            },
+            methods: {
+                somar: function somar() { // convencional
+                    return 4 + 2
+                },
+                subtrair: function() {  //anônima
+                    return 4 - 2
+                },  
+                multiplicar: () => 4 * 2,//arrow function
+
+                dividir(){ // forma enxuta de definir os pares de chave/valor 
+                    return 4 / 2
+                },
+                numeroAleatorio: function numeroAleatorio() { // a informação atribuida a chave é identica ao seu valor na pratica é isso que estamos fazendo na forma enxuta// uma função de mesmo nome de sua chave
+                    return Math.random()
                 }
             }
         }); 
