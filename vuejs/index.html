@@ -8,6 +8,18 @@
     <title>Document</title>
 </head>
 <body>
-    Teste Live server
+
+    <div id="app">
+        {{ mensagem }}
+    </div>
+
+    <script>
+       const vm = new Vue({
+            el: '#app',
+            data: { 
+                mensagem: 'Primeiro template controlado pelo Vue'
+            }
+        }); 
+    </script>
 </body>
 </html>
