@@ -10,14 +10,41 @@
 <body>
 
     <div id="app">
-        {{ mensagem }}
+        {{ mensagem }} <br>
+        Valor total: {{ valorTotal }} <br>
+        Logado: {{ logado }} <br>
+        Hobbie: {{ hobbies[0] }} <br>
+        Perfil: {{ perfil.site }}, {{perfil.cursos[0].nome}}
     </div>
 
     <script>
        const vm = new Vue({
             el: '#app',
             data: { 
-                mensagem: 'Primeiro template controlado pelo Vue'
+                mensagem: 'Primeiro template controlado pelo Vue', //string
+                valorTotal: 150.47, //número
+                logado:false, //booleano
+                hobbies: [
+                    'Dormir',
+                    'Colecionar vídeo games antigos',
+                    'Correr',
+                    'Trilhas'
+                ],
+                perfil:{
+                    nome: 'Danilo Duarte Oliveira',
+                    site: 'DDanilo000.com.br',
+                    idade: 32,
+                    cursos: [
+                        { 
+                            nome: 'laravel', 
+                            cargaHoraria: '50 Horas'
+                        },
+                        { 
+                            nome: 'Banco de Dados Relacionais', 
+                            cargaHoraria: '40 Horas'
+                        }
+                    ]
+                }
             }
         }); 
     </script>
