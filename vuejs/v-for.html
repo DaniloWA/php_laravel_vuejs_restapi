@@ -30,19 +30,35 @@
                     <th>Descrição</th>
                 </tr>
             </thead>
+            <tbody>
                 <tr v-for="({titulo, descricao}, key) in cursos2"> <!-- destructuring assignment-->
                     <td>{{ key }}</td>
                     <td>{{titulo}}</td>
                     <td>{{descricao}}</td>
                 </tr>
-            <tbody>
-
             </tbody>
         </table>
+        <ul>
+            <li v-for="p in publicacoes" style="border: solid 1px; margin-bottom:10px" :key="p.id">
+                <div>
+                    {{ p.publicacao }}
+                    <hr>
+                    <input type="text">
+                </div>
+                
+            </li>
+        </ul>
+        <button @click="misturarArray()">Misturar Publicações</button>
     </div>
 
 
     <script>
+
+        /* let n1 = parseInt(prompt('Numero 01')) 
+        let n2 = parseInt(prompt('Numero 02')) 
+        
+        alert(`${n1} + ${n2} = ` + (n1+n2)) */
+
         const vm = new Vue({
             el: '#app',
             data: {
@@ -54,10 +70,24 @@
                     1001:{
                         titulo: 'Banco de dados', descricao: 'Aprenda os principais BDs relacionais do mercado'
                     }
-                }
+                },
+                publicacoes: [
+                { id: 1, publicacao: 'Publicação 01' },
+                { id: 2, publicacao: 'Publicação 02' },
+                { id: 3, publicacao: 'Publicação 03' },
+            ],
             },
-            methods: {
 
+            methods: {
+                misturarArray(){
+                    let misturado = []
+
+                    misturado[0] = this.publicacoes[2]
+                    misturado[1] = this.publicacoes[0]
+                    misturado[2] = this.publicacoes[1]
+
+                    this.publicacoes = misturado
+                }
             }
         })
     </script>
