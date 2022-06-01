@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+    <style>
+        .verde{
+            background-color: green;
+        }
+        .azul{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app"> 
+        <ul>
+            <li v-for="(curso, key) in cursos" v-text="key  +' - '+  curso"></li>
+        </ul>
+        <hr>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+                <tr v-for="({titulo, descricao}, key) in cursos2"> <!-- destructuring assignment-->
+                    <td>{{ key }}</td>
+                    <td>{{titulo}}</td>
+                    <td>{{descricao}}</td>
+                </tr>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                cursos: ['laravel', 'web Completo', 'Banco de Dados', 'solid', 'Angular'],
+                cursos2: {
+                    1000:{
+                        titulo: 'Laravel', descricao: 'Domine o framework PHP mais poderoso do mundo'
+                    },
+                    1001:{
+                        titulo: 'Banco de dados', descricao: 'Aprenda os principais BDs relacionais do mercado'
+                    }
+                }
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+</html>
